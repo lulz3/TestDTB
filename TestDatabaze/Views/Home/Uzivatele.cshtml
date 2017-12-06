@@ -1,0 +1,43 @@
+﻿@model List<UserProfile>
+
+@{
+    ViewBag.Title = "Uzivatele";
+}
+
+
+<table align="center">
+<tr><td>@ViewBag.Title</td></tr>
+</table>
+
+
+<table align="center">
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Date</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Username</td>
+            <td>@item.Date</td>
+        </tr>
+    }
+</table>
+
+<!--
+if (Session["Admin"].ToString() == "1")
+{
+    <table align="center">
+        <th>Administrator</th>
+    </table>
+}
+else
+{
+    <table align="center">
+        <th>Uzivatel</th>
+    </table>
+}
+-->

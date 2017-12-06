@@ -1,0 +1,47 @@
+﻿@model TestDatabaze.UserProfile
+
+@{
+    ViewBag.Title = "Registrace";
+}
+
+
+@using (Html.BeginForm("Registrace", "Home", FormMethod.Post))
+{
+    <fieldset>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        <br><br>
+        <table align="center">
+            <tr>
+                <td>@Html.LabelFor(a => a.Username) :  </td>
+                <td>@Html.TextBoxFor(a => a.Username)</td>
+                <td>@Html.ValidationMessageFor(a => a.Username)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.Password) : </td>
+                <td>@Html.PasswordFor(a => a.Password)</td>
+                <td>@Html.ValidationMessageFor(a => a.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(a => a.ConfirmPassword) : </td>
+                <td>@Html.PasswordFor(a => a.ConfirmPassword)</td>
+                <td>@Html.ValidationMessageFor(a => a.ConfirmPassword)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Registrace" />
+                </td>
+                <td></td>
+            </tr>
+        </table><br><br>
+    </fieldset>
+} 
